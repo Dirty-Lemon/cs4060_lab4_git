@@ -17,7 +17,7 @@ class main():
     powCompressImg3 = i.powerLawTransform(lenaImg, 0.2)    # Perform gamma compression
     powCompressImg4 = i.powerLawTransform(lenaImg, 0.5)    # Perform gamma compression
     
-    # Show all gamma-compressed images on one chart
+    # Show all gamma-compressed images at once
     powCompressImgArray = [powCompressImg1, powCompressImg2, powCompressImg3, powCompressImg4]
     i.showMultImg(powCompressImgArray)
     
@@ -31,9 +31,17 @@ class main():
     i.showMultImg(powExpandImgArray)
     
     # Task 2 - Log Contrast Stretching
-    # What is FTspectrum.tif?
-    logImg = i.logTransform(lenaImg)
-    i.myShowImg(logImg)
+    ftSpectrumImg = i.myReadImg('FTspectrum.tif')
+    i.myShowImg(ftSpectrumImg)      # Show original image for comparison
+    
+    # Log constrast stretching on FTspectrum.tif
+    logFtSpectrumImg = i.logTransform(ftSpectrumImg)
+    i.myShowImg(logFtSpectrumImg)
+    
+    # Log constrast stretching on lena.tif
+    i.myShowImg(lenaImg)            # Show original image for comparison
+    logLenaImg = i.logTransform(lenaImg)
+    i.myShowImg(logLenaImg)
     
 if __name__ == "__main__":
     main()

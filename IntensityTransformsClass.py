@@ -45,9 +45,9 @@ class IntensityTransforms():
         return s
     
     # Performs the Log transformation function on an image
+    # s = log(1 + r)
     def logTransform (self, r):
         print("Applying log transformation to image...")
         r = r / 255
         s = np.log(1 + r)
         return s
-    
